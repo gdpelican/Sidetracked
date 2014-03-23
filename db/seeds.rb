@@ -1,0 +1,80 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Entry.destroy_all
+
+Performer.create! [
+  {title: 'Shoshanna Ruth', 
+   subtitle: 'Captain',      
+   picture: File.open("#{Rails.root}/public/images/performers/shosh.jpg")}, 
+  {title: 'Kimberlie Cruse', 
+   subtitle: 'First Mate',  
+   picture: File.open("#{Rails.root}/public/images/performers/kim.jpg")}]
+
+Act.create! [
+  { title: 'Bag Lady Theatre',
+    picture: File.open("#{Rails.root}/public/images/acts/baglady.jpg") },
+  { title: 'Fairy Ring Theatre',
+    picture: File.open("#{Rails.root}/public/images/acts/fairies.jpg") },
+  { title: 'Wandering Gypsy Theatre', 
+    picture: File.open("#{Rails.root}/public/images/acts/gypsies.jpg") },
+  { title: 'Anne Bonney & Mary Reed',
+    picture: File.open("#{Rails.root}/public/images/acts/pirates.jpg") },
+  { title: 'Fire & Brimstone', 
+    picture: File.open("#{Rails.root}/public/images/acts/devils.jpg") }
+]
+
+Testimonial.create! [
+  { title: 'Amanda Ash', 
+    subtitle: 'Edmonton Journal', 
+    content: 'Cruse is a pickup line master', 
+    link: 'http://www.edmontonjournal.com/Edmonton+Fringe+performers+share+their+pickup+lines/7118108/story.html',
+    picture: File.open("#{Rails.root}/public/images/testimonials/ej.jpg") },
+  { title: 'Steven Samuels', 
+    subtitle: 'Mountain Xpress Asheville', 
+    content: 'Two very funny women', 
+    link: 'http://www.mountainx.com/article/30069/Review-of-the-Americana-Burlesque-and-Sideshow-fest',
+    picture: File.open("#{Rails.root}/public/images/testimonials/mx.jpg") },
+  { title: 'Paulo Garbanzo', 
+    subtitle: 'Juggler, Fool of Muncaster Castle', 
+    content: 'These two are so funny, they might be a threat to my comedic empire ...Minions! Break their kneecaps!',
+    picture: File.open("#{Rails.root}/public/images/testimonials/paulo.jpg") }
+]
+
+Social.destroy_all
+Social.create! [
+  { name: 'Facebook', href: 'https://www.facebook.com/SidetrackedProductions', title: 'Like us on Facebook', icon: 'facebook' },
+  { name: 'Twitter', href: 'http://www.twitter.com/SidetrackedProductions', title: 'Follow us on Twitter', icon: 'twitter' },
+  { name: 'Youtube', href: 'http://www.youtube.com/YourSidetracked', title: 'Watch us on Youtube', icon: 'youtube' },
+  { name: 'Email', href: 'mailto:sidetrackedinfo@gmail.com', icon: 'envelope'},
+  { name: 'Buy our CD!', href: 'http://www.example.com', icon: 'music' },
+  { name: 'View our Demo', href: 'http://www.youtube.com/watch?v=3YhBU5dKOso', icon: 'film' }
+]
+
+External.destroy_all
+External.create! [
+  { name: 'Louisiana Renaissance Faire', href: 'http://www.la-renfest.com' },
+  { name: 'Cheeky Monkey Sideshow', href: 'http://www.cheekymonkeysideshow.com/' },
+  { name: 'Moonshine Cabaret', href: 'https://www.facebook.com/MoonshineCabaret' },
+  { name: 'Cabaret Red Light', href: 'http://www.cabaretredlight.com'},
+  { name: 'Paulo Garbanzo', href: 'http://www.garbanzojuggling.com' },
+  { name: 'Fashoo the Fool', href: 'http://www.rentafool.com/fashoo.htm' },
+  { name: 'Laughing Moon Productions', href: 'http://www.laughingmooninc.com' } 
+]
+
+Performance.destroy_all
+gigs1 = [ Performance.new({ date: 1.day.from_now }), Performance.new({ date: 2.days.from_now }), Performance.new({ date: 2.days.ago })]
+gigs2 = [ Performance.new({ date: 1.week.from_now }), Performance.new({ date: 10.days.from_now}), Performance.new({ date: 2.weeks.from_now })]
+gigs3 = [ Performance.new({ date: 6.days.ago }), Performance.new({ date: 7.days.ago }), Performance.new({ date: 8.days.ago})]
+
+Gig.destroy_all
+Gig.create! [
+  { name: 'Test performance', city: 'Philadelphia', state: 'PA', address: '123 Street', description: 'Test description', performances: gigs1, act: Act.first },
+  { name: 'Future performance', city: 'Asheville', state: 'NC', address: '222 Main', description: 'Test description 2', performances: gigs2, act: Act.last },
+  { name: 'Past performance', city: 'Miami', state: 'FL', address: 'Wark st', description: 'Past description', performances: gigs3, act: Act.first } 
+]

@@ -1,0 +1,2 @@
+access_key_id: AKIAJJN2YCEVPTVUAQOA
+secret_access_key: <%= ENV.fetch('S3_SECRET', '') %>

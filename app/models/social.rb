@@ -1,0 +1,3 @@
+class Social < Link
+  
+end

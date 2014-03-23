@@ -1,0 +1,108 @@
+@import 'colors';
+
+#upcoming {  
+  top: 2em !important;
+  &:after { top: -1em !important; }
+  &:before { 
+    content: '';
+    position: absolute;
+    top: -1em;
+    left: 0;
+    background: $red-dark;
+    width: 100%;
+    height: 1em;
+  }
+
+  article.upcoming {
+    padding-bottom: 2em;
+    .entry-container {
+      padding: 1em;
+      background: $yellow-lighter;
+      border-radius: .5em;
+      box-shadow: inset 0 0 .25em black;
+    }
+  }
+ 
+  article.calendar {
+    
+    padding: 1em;
+    color: black;
+    background: $yellow-lighter;
+    border-radius: .5em;
+    box-shadow: inset 0 0 .25em black;
+    
+    h2 {
+      a {
+        font-size: 1em;
+        padding: 0 .25em;
+      }
+      text-align: center;
+      font-size: 1.5em;
+    }
+    table {
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: .25em .5em;
+      thead { 
+        font-family: Narrow;
+        letter-spacing: 3px;
+        color: $red-dark; 
+      }
+      td {
+        position: relative;
+        text-align: center;
+        padding: .5em 1em;
+        border-radius: .25em;
+        &:not(.not-current-month) {
+          box-shadow: inset 0 0 4px black;
+          &.past { opacity: .5; }
+          &.today {
+            border: 1px solid $red-dark;
+          }
+          &.events {
+            font-weight: bold;
+            color: black;
+            background: $yellow-fade-some; 
+            cursor: pointer;
+          }
+        }
+        &.not-current-month {
+          box-shadow: inset 0 0 4px #ccc;
+          color: #ccc;
+        }
+        &.selected {
+          opacity: 1 !important;
+          box-shadow: 0 0 2px 2px $black-fade-some;
+        }
+        .entry {
+          &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-left: 1em solid transparent;
+            border-right: 1em solid transparent;
+            border-bottom: 1em solid $black-fade-some;
+            top: -1.4em;
+            left: 2em;
+          }
+          top: 3em;
+          left: -50%;
+          background: $yellow-lighter;
+          padding: 1em;
+          min-width: 15em;
+          border-radius: .5em;
+          box-shadow: 0 0 0 .5em $black-fade-some;
+          display: none;
+          position:absolute;
+          z-index: 10;
+          cursor: default;
+          
+          img { border-radius: 100%; }
+          
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,8 @@
+<%= content_tag :div, '', class: 'title' do %>
+	<%= content_tag :h1, "Sidetracked" %>
+	<%= content_tag :h2, "We tell stories" %>
+	
+	<%= link_to "<span>Listen</span><span>Mute</span> #{font_icon('volume-up')}".html_safe, 'javascript:;', class: 'round-link listen'%>
+	<%= round_link 'Learn More', 'angle-double-down', target: 'about', css: 'more' %>
+	<%= round_link 'Get Sidetracked', 'angle-double-right', target: 'contact', css: 'sidetracked' %>
+<% end %>

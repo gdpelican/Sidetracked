@@ -1,0 +1,18 @@
+<%= content_tag :div, '', class: 'inline-block' do %>
+	<%= content_tag :h2, 'Sidetracked Is...' %>
+	<%= render partial: 'partials/entries', locals: { type: :performers } %>
+<% end %>
+
+<%= content_tag :div, '', class: 'inline-block' do %>
+	<%= content_tag :h2, 'Links' %>
+	<%= render partial: 'partials/links', locals: { type: :externals } %>
+<% end %>
+
+<%= content_tag :div, '', class: 'inline-block' do %>
+	<%= content_tag :h2, 'Keep in touch!' %>
+	<%= render partial: 'partials/links', locals: { type: :socials } %>
+<% end %>
+
+<%= content_tag :div, '', class: 'copyright' do %>
+	<%= content_tag :span, '&copy; 2014 Sidetracked Productions'.html_safe %>
+<% end %>

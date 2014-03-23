@@ -1,0 +1,60 @@
+@import 'colors';
+
+#about {
+  $color: $yellow-lightest;
+  background-clip: padding-box;
+  background: $color;
+  position: relative;
+  z-index: 2;
+  top: 1em;
+  
+  #carrot {
+    position: absolute;
+    left: 0;
+    bottom: 1em;
+    opacity: .25;
+    max-height: 100%;
+    max-width: 30%;
+    z-index: -1;
+  }
+  
+  >article {
+    display: inline-block;
+    &.about {
+      text-align: left;
+      p { 
+        font-size: 1.25em; 
+        padding: .35em 0;
+      }
+      ul {
+        padding: 1em 0 1em 2em;
+        font-size: 1.1em;
+        list-style-type: none;
+        li {
+          &:before {
+            content: '\f00c';
+            font-family: FontAwesome;
+            color: $red-dark;
+            padding: 0 .5em;
+          }
+        }       
+      }
+      a {
+        color: $yellow-darker;
+        &:hover { color: $red-dark; }
+      }
+      color: black;
+    }
+    &.info {
+      padding-top: 2em; 
+      .show-hidden-entries { float: right; }
+    }
+    &.links {
+      text-align: center;
+      width: 100%;
+      display: block;      
+    }
+    
+  }
+  
+}

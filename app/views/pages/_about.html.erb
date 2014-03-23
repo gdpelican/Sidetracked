@@ -1,0 +1,36 @@
+<%= image_tag 'carrot.png', alt: 'carrot', id: 'carrot' %>
+
+<%= content_tag :article, '', class: 'about left' do %>
+	<%= content_tag :h2, 'About Us' %>
+	<%= content_tag :article, '', class: 'about-us-text' do %>
+		<%= content_tag :p, "Masters of the lost art of wile and wit, Sidetracked is a dynamic duo carrying vaudeville into the new age. The brain child of Shoshanna Hill and Kimberlie Cruse, Sidetracked promises to be a benevolent dictator of mirth for your next party or event." %>
+		<%= content_tag :p, ("Since 2004 this comedic duo has been gracing the streets and stages with their fast-paced, vaudeville-style storytelling. " +
+							"Recent performances include: #{link_to 'The Edinburgh Fringe Festival', 'http://www.edfringe.com/'}, " +
+							"#{link_to 'The Americana Burlesque and Sideshow Festival', 'http://www.absfest.com/'} " +
+							"and #{link_to 'The Edmonton Fringe Festival', 'http://www.fringetheatre.ca/'}. ").html_safe %>
+		<%= content_tag :p, ("Want to see us in action? Click on our acts to hear some stories, or #{link_to 'check out our demo reel', @demo_link.href if @demo_link}. " + 
+							"If you like what you hear, please do #{slide_link('get in touch', 'contact').html_safe}! We\'re available for").html_safe %>
+		<%= content_tag :ul do %>
+			<%= content_tag :li, 'Parties' %>
+			<%= content_tag :li, 'Corporate Events' %>
+			<%= content_tag :li, 'Burlesque Shows' %>
+			<%= content_tag :li, 'Street Theater' %>
+			<%= content_tag :li, 'Master of Ceremonies' %>
+			<%= content_tag :li, 'Renaissance Faires and other themed events' %>
+			<%= content_tag :li, 'Anything else you can think of! (We love trying new things.)' %>
+		<% end %>
+		<%= content_tag :p, "Or, take us home with you! Our first CD, #{link_to('Extraordinary!', @cd_link.href).html_safe} is now on sale.".html_safe if @cd_link %>
+	<% end %>
+<% end %>
+
+<%= content_tag :article, '', class: 'info right' do %> 
+	<%= entries_list 'Hear some stories', :acts %>
+	<%= entries_list 'Hear some love', 	:testimonials %>
+<% end %>
+
+<%= content_tag :article, '', class: 'links' do %>
+	<%= round_link_for @cd_link, css: 'cd' %>
+	<%= round_link_for @demo_link, css: 'demo' %>
+	<%= round_link 'See us live!', 'angle-double-down', target: 'upcoming', css: 'more' %>
+	<%= round_link 'Book us!', 'angle-double-right', target: 'contact', css: 'book sidetracked' %>
+<% end %>

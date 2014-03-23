@@ -1,0 +1,4 @@
+<%= content_tag :video, autoplay: '', loop: '', id: 'video' do %>
+	<% content_tag :source, '', src: asset_path('background.mp4'), type: 'video/mp4' %>
+<% end %>
+<%= content_tag :div, '', class: 'overlay' %>

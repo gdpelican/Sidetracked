@@ -1,0 +1,7 @@
+<% if entries.any? %>
+	<%= content_tag :div, '', class: "entry-container #{entries.first.type.downcase.to_s.pluralize}-container #{visible ? 'visible' : 'hidden'}-entry-container" do %>
+		<% entries.each do |entry| %>
+			<%= render template: 'entries/show', locals: { entry: entry } %>
+		<% end %>
+	<% end %>
+<% end %>

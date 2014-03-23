@@ -1,0 +1,42 @@
+@import 'colors';
+
+#home {
+  padding: 0;
+  margin: 0;
+  display: table;
+  position: relative;
+  background: transparent;
+  
+  .title {
+    color: white;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    h1 {
+      font-size: 400%;
+      font-family: Sidetracked;
+      letter-spacing: .2em;
+      padding-bottom: .2em;
+      @include transform(rotate(10deg));
+    }
+    h2 {
+      font-size: 200%;
+      font-family: Subtitle;
+    }
+    .round-link {
+      &.listen { 
+        line-height: 275%; 
+        span { display: none; }
+        span:first-child { display: inline; }
+      }
+      &.more { 
+        padding: .2em .5em; 
+        &:hover i { @include animation(DOWN_ICON .5s); }
+      }
+      &.sidetracked { 
+        padding: .2em 0 0 0; 
+        &:hover i { @include animation(RIGHT_ICON .5s); }
+      }
+    }
+  }  
+}

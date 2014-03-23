@@ -1,0 +1,5 @@
+<%= content_tag :nav, '', class: 'light' do %>
+	<% @pages.each do |page| %>
+		<%= slide_link "#{page}".humanize, page, 'light' %>
+	<% end %>
+<% end %>

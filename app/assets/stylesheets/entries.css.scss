@@ -1,0 +1,49 @@
+.show-hidden-entries {
+  font-family: Narrow;
+  letter-spacing: 2px;
+  color: $red-dark;
+  text-shadow: 1px 1px 2px black;
+  a { color: $yellow-light; }
+}
+
+.entry-container {
+  text-align: left;
+  &.acts-container {
+    .title { line-height: 4em; }
+  }
+  &.hidden-entry-container { display: none; }
+  
+  padding: .5em 0;
+  
+  .entry {
+    width: 49.5%;
+    min-width: 13em;
+    color: black;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    
+    .picture {
+      img {
+        float: left;
+        width: 4em;
+        height: 4em;
+        border-radius: 100%;
+        margin: .5em .75em .75em .5em;
+      }
+    }
+    .title {
+      font-family: Narrow;
+      letter-spacing: 2px;
+    }
+    .subtitle {
+      font-size: .7em;
+      font-style: italic;
+    }
+    .content {
+      font-size: .8em;
+      padding-top: .25em;
+    }
+  }
+  
+}

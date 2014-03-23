@@ -1,0 +1,8 @@
+<%= content_tag :div, '', class: "#{entry.type.to_s.downcase.singularize} entry" do %>
+	<%= content_tag :div, image_tag(entry.picture.url(:thumb)), class: 'picture' %>
+	<%= content_tag :div, '', class: 'entry-text-wrapper' do %>
+		<%= content_tag :h3, entry.title, class: 'title' %>
+		<%= content_tag :div, entry.subtitle, class: 'subtitle' %>
+		<%= content_tag :div, entry.content, class: 'content' %>
+	<% end %>
+<% end %>

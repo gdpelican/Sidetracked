@@ -1,0 +1,7 @@
+<%= content_tag :div, render(partial: 'partials/video'), class: 'video' %>
+
+<% @pages.each do |page| %>
+	<%= content_tag :section, render(partial: "pages/#{page}"), id: page %>
+<% end %>
+
+<%= content_tag :footer, render(partial: 'partials/footer') %>

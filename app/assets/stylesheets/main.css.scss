@@ -1,0 +1,126 @@
+@import 'colors';
+
+@mixin stretch($top:0, $right:0, $bottom:0, $left:0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+* {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: Thin;
+  color: white;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section { 
+  background: $red-dark;
+  &:before { background: $red-dark; }
+  text-align: center;
+
+  width: 100%;
+  padding: 4em 2em;
+  position: relative;
+  article {
+    vertical-align: top;
+    display: inline-block;
+    &.left {
+      display: inline-block;
+      margin: 0 2em;
+      min-width: 25em;
+      max-width: 30em;
+    }
+    &.right {
+      min-width: 15em; 
+      max-width: 35em;      
+    }
+  }
+}
+
+nav {
+  -webkit-transform: translateZ(0);
+  position: fixed;
+  top: .5em;
+  right: 1.5em;
+  z-index: 10;
+  transition: all 2s; 
+  &.light a { color: $yellow-lighter; text-shadow: 1px 1px 3px $yellow-dark; }
+  &.dark a { color: $yellow-dark;     text-shadow: 1px 1px 3px $yellow-lighter; }
+  a {
+    text-decoration: none;
+    font-family: Narrow;
+    font-size: 175%;
+    padding-left: .5em;
+    position: relative;
+    &:hover:after {
+      background: url("swirly_light.png") no-repeat center;
+      content: '';
+      width: 100%;
+      background-size: 1.75em .6em;
+      height: 1em;
+      position: absolute;
+      top: .7em;
+      left: .25em;
+    }
+  }
+}
+
+h1 {
+  color: $red-dark;
+  text-shadow: 2px 2px 4px black;
+}
+
+h2 {
+  font-family: Narrow;
+  letter-spacing: 2px;
+  color: $yellow-light;
+  text-shadow: 1px 1px 2px black;
+  font-size: 3em;
+  a { color: $yellow-light;
+      font-size: .5em; }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+div { 
+  font-family: Thin; 
+}
+
+i.fa-film:before { font-size: .85em; }
+
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+
+.slide-down { display: none; }
+
+.video {
+  overflow: hidden;
+  z-index: -1;
+  @include stretch(0,0,-1em,0); 
+  position: fixed;
+  video {
+    position: fixed;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .overlay {
+    @include stretch;
+    background: $yellow-fade;
+  }
+}

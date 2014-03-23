@@ -1,0 +1,76 @@
+@import 'colors';
+
+footer {
+  
+  text-align: center;
+  position: relative;
+  top: 2em;
+  padding: 2em;
+  background: rgba(0,0,0,.8);
+  color: $yellow-lighter;
+  a { color: $yellow-lighter; }
+
+  .inline-block {
+    padding: 1em;
+    vertical-align: top;
+    width: 15em;
+        
+    h2 { 
+      font-size: 1.25em;
+    }
+    
+    h3 { font-family: Subtitle !important; }
+    
+    .links {
+      list-style-type: none;
+      .link {
+        i { 
+          width: 1.35em; 
+          text-align: center;
+          &.fa-youtube, &.fa-envelope {
+            position: relative;
+            bottom: .1em;
+          }
+        }
+        transition: all .5s;
+        border-bottom: 1px solid;
+        border-color: $yellow-fade-more;
+        &:hover { border-color: $yellow-lighter; }
+        text-align: left;
+        padding: .75em 0 .25em;
+        font-family: Thin;
+        font-size: .9em;
+        letter-spacing: 2px;
+      }  
+    }
+    
+    .entry {    
+      padding: 0 .5em 2.5em .5em;
+      color: $yellow-lighter !important;
+      display: block;
+      margin: auto;
+      width: auto;
+      text-align: center;
+      .picture img { 
+        margin: 0 inherit .25em inherit;
+        float: none !important; 
+      }
+      .subtitle { 
+        font-family: Thin; 
+        font-style: normal !important;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+        line-height: 0;
+      }
+      text-align: center;
+    }
+    
+  }
+    
+  .copyright {
+    font-family: Thin;
+    font-size: 1.25em;
+    letter-spacing: 2px;
+  }
+
+}
