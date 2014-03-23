@@ -1,4 +1,15 @@
 #contact {
+  transition: all .25s ease-in;
   position: fixed;
-  right: 100%;
+  padding: 1em 0;
+  right: -11em;
+  width: 0;
+  height: 5em;
+  width: 10em;
+  z-index: 200;
+  bottom: 1em;
+  &.shown {
+    right: 1em;
+  }
+  box-shadow: 0 0 5px black;
 }
