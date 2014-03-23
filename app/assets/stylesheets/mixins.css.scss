@@ -39,6 +39,12 @@ footer:after { @include jagged(transparent, $red-dark, true); padding-top: .25em
   90% { left: .5em; opacity: 0; }
   100% { left: 1.5em; opacity: 1; } }
 
+@-webkit-keyframes UP_ICON {
+  0% { top: 10%; opacity: 1; }
+  89% { top: -15%; opacity: 0; }
+  90% { top: 15%; opacity: 0; }
+  100% { top: 10%; opacity: 1; } }
+
 @mixin round-link {
   color: $yellow-lighter;
   background: $yellow-fade-more;
@@ -108,6 +114,9 @@ footer:after { @include jagged(transparent, $red-dark, true); padding-top: .25em
   }
   &.book {
     line-height: 250%;
+  }
+  &.top {
+    &:hover i { @include animation(UP_ICON .5s); }
   }
 }
 

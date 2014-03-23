@@ -71,6 +71,35 @@ footer {
     font-family: Thin;
     font-size: 1.25em;
     letter-spacing: 2px;
+    padding-bottom: 1.5em;
   }
-
+  
+  .top-link {
+   text-align: right;
+   padding:0;
+   margin: -6em -2em 0;
+   position: relative;
+   top: 2em;
+   overflow: hidden;
+   a {
+     &:hover:after {
+       width: 3em;
+       height: 3em;
+     }
+     &:after {
+       width: 1.9em;
+       height: 1.9em;
+     }
+     width: 2em;
+     height: 2em;
+     background: transparent;
+     margin: 0 1em;
+     position: relative;
+     top: 1em;
+     i {
+       top: 10%;
+       left: .7em;
+     }
+   } 
+  }
 }
