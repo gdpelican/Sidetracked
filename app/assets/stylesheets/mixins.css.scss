@@ -14,6 +14,11 @@
 -webkit-linear-gradient(-45deg, transparent 66.66%, $bottom -66.66%) 0 0, 
 -webkit-linear-gradient(135deg, $top 66.66%, transparent 66.66%) 0 0,
 -webkit-linear-gradient(-135deg, transparent 33.33%, $top -33.33%) 0 0;
+    background:
+-moz-linear-gradient(45deg,  $bottom 33.33%, transparent 33.33%) 0 0,                 
+-moz-linear-gradient(-45deg, transparent 66.66%, $bottom -66.66%) 0 0, 
+-moz-linear-gradient(135deg, $top 66.66%, transparent 66.66%) 0 0,
+-moz-linear-gradient(-135deg, transparent 33.33%, $top -33.33%) 0 0;
     background-repeat: repeat-x;
     background-size:  2em 100%;
     @if($flip) {
@@ -58,11 +63,11 @@ footer:after { @include jagged(transparent, $red-dark, true); padding-top: .25em
   position: relative;
   vertical-align: top;
   border-radius: 100%;
-  width: 3em;
-  height: 3em;
-  outline: 0;
+  width: 3.1em;
+  height: 3.1em;
   display: inline-block;
   margin: 1em;
+  line-height: 1em;
   text-decoration: none;
   &:after {
     transition: all .5s;

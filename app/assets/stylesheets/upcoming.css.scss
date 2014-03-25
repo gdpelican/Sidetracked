@@ -49,7 +49,7 @@
         color: $red-dark; 
       }
       td {
-        position: relative;
+        > div { position: relative; }
         text-align: center;
         padding: .5em 1em;
         border-radius: .25em;
@@ -86,8 +86,8 @@
             top: -1.4em;
             left: 2em;
           }
-          top: 3em;
-          left: -50%;
+          top: 2.75em;
+          left: -2.5em;
           background: $yellow-lighter;
           padding: 1em;
           min-width: 15em;

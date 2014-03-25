@@ -1,7 +1,7 @@
 $ ->
   @Main =
     initialize: ->
-      body = $('body')
+      body = $('body, html')
       body.find('section:not(#contact)').css('min-height', $(window).height())
       body.find('section#home').css('height', $(window).height())
       
@@ -24,8 +24,6 @@ $ ->
           
       @makeScrollEvent($('#home'), (visible) ->
         $('nav').addClass('light', visible).toggleClass('dark', !visible))
-      @makeScrollEvent($('#home'), (visible) ->
-        $('#cdLink').toggleClass('visible', !visible))
 
     isVisible: (element) =>
       window = $(@)
