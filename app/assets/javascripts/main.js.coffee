@@ -3,6 +3,7 @@ $ ->
     initialize: ->
       body = $('body')
       body.find('section:not(#contact)').css('min-height', $(window).height())
+      body.find('section#home').css('height', $(window).height())
       
       body.on 'click', '.slide-to[data-target=contact]', (event) ->
         event.preventDefault()

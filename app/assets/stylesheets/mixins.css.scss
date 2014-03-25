@@ -60,6 +60,7 @@ footer:after { @include jagged(transparent, $red-dark, true); padding-top: .25em
   border-radius: 100%;
   width: 3em;
   height: 3em;
+  outline: 0;
   display: inline-block;
   margin: 1em;
   text-decoration: none;
