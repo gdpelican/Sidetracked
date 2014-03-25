@@ -68,19 +68,19 @@ footer:after { @include jagged(transparent, $red-dark, true); padding-top: .25em
     transition: all .5s;
     content: '';
     position: absolute;
-    width: 2.95em;
-    height: 2.95em;
     border-radius: 100%;
     border: 2px solid;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     opacity: .25;
   }
   &:hover:after {
-    width: 4.5em;
-    height: 4.5em;
-    top: -25%;
-    left: -25%;
+    top: -.6em;
+    left: -.6em;
+    bottom: -.6em;
+    right: -.6em;
     opacity: 0;
   }
   i {
