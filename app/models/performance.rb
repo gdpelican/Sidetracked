@@ -11,6 +11,10 @@ class Performance < ActiveRecord::Base
   scope :past, -> { includes(:gig).where('date < ?', Date.today) }
   scope :in_month, ->(month) { where('date between ? and ?', month.beginning_of_month, month.end_of_month) }
 
+  def self.collection(*dates)
+    dates.map { |date| Performance.new(date: date) }
+  end
+
   private
   
   def update_gig_entry

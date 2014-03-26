@@ -74,7 +74,25 @@ gigs3 = [ Performance.new({ date: 6.days.ago }), Performance.new({ date: 7.days.
 
 Gig.destroy_all
 Gig.create! [
-  { name: 'Test performance', city: 'Philadelphia', state: 'PA', address: '123 Street', description: 'Test description', performances: gigs1, act: Act.first },
-  { name: 'Future performance', city: 'Asheville', state: 'NC', address: '222 Main', description: 'Test description 2', performances: gigs2, act: Act.last },
-  { name: 'Past performance', city: 'Miami', state: 'FL', address: 'Wark st', description: 'Past description', performances: gigs3, act: Act.first } 
+  { name: 'Miami Renaissance Festival', 
+    city: 'Miami', 
+    state: 'FL', 
+    description: 'Suspended Between Myth and History -  Cauley Square Historic Village WANDERING GYPSY THEATER for the first time ever, will wander the streets and pubs with their vaudeville renaissance stylings.',
+    link: 'http://www.ren-fest.com/tickets.asp',
+    act: Act.where(title: 'Wandering Gypsy Theatre').first,
+    performances: Performance.collection(2.days.from_now) },
+  { name: 'Festival of Legends', 
+    city: 'Chapel Hill', 
+    state: 'NC', 
+    description: 'The third annual Festival of Legends will be returning to Storybrook Farms! FAERIE RING THEATER will return to charm you with their vaudeville storytelling.', 
+    link: 'http://www.festivaloflegends.com',
+    act: Act.where(title: 'Fairy Ring Theatre').first,
+    performances: Performance.collection(5.days.from_now) },
+  { name: 'Spoutwood May Day Faerie Festival',
+    city: 'Spoutwood Farm',
+    state: 'PA', 
+    description: 'Once again, the festival will celebrate the beginning of spring with 70 arts and crafts vendors (mostly featuring handmade art inspired by the little people), performances by musicians, dancers, and storytellers. FAERIE RING THEATER will join Spoutwood once again with their whimsical stories!', 
+    link: 'http://www.spoutwood.org/fairie-festival',
+    act: Act.where(title: 'Fairy Ring Theatre').first,
+    performances: Performance.collection(Date.tomorrow) }
 ]

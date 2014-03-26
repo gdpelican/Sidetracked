@@ -16,10 +16,11 @@ class Gig < ActiveRecord::Base
     min, max = performances.minimum(:date), performances.maximum(:date)
     return if min.blank? || max.blank?
     
-    y, m =     min.year == max.year, min.month == max.month
-    if    y && m then "#{format min, :day_month} - #{format max, :day_year}"
-    elsif y      then "#{format min, :day_month} - #{format max}"
-    else              "#{format min} - #{format max}" end
+    y, m, d =     min.year == max.year, min.month == max.month, min.day == max.day
+    if    y && m && d then "#{format min}"
+    elsif y && m      then "#{format min, :day_month} - #{format max, :day_year}"
+    elsif y           then "#{format min, :day_month} - #{format max}"
+    else                   "#{format min} - #{format max}" end
   end
   
   private

@@ -25,6 +25,7 @@
  
   article.calendar {
     
+    margin-top: 3em;
     padding: 1em;
     color: black;
     background: $yellow-lighter;
@@ -90,12 +91,12 @@
           left: -2.5em;
           background: $yellow-lighter;
           padding: 1em;
-          min-width: 15em;
+          min-width: 20em;
           border-radius: .5em;
           box-shadow: 0 0 0 .5em $black-fade-some;
           display: none;
           position:absolute;
-          z-index: 10;
+          z-index: 9999;
           cursor: default;
           
           img { border-radius: 100%; }

@@ -36,6 +36,7 @@
     @include jagged;
     left: -1em;
     height: 100%;
+    z-index: -1;
     width: 4em;
     background: 
 -webkit-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,                 
