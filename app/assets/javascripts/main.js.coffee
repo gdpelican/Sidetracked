@@ -1,13 +1,10 @@
 $ ->
   @Main =
     initialize: ->
-      body = $('body, html')
-      body.find('section:not(#contact)').css('min-height', $(window).height())
+      body = $('body')
+      html = $('html')
+      body.find('section').css('min-height', $(window).height())
       body.find('section#home').css('height', $(window).height())
-      
-      body.on 'click', '.slide-to[data-target=contact]', (event) ->
-        event.preventDefault()
-        $('#contact').toggleClass('visible')
       
       body.on 'click', '.reveal', (event) ->
         event.preventDefault()
@@ -18,9 +15,9 @@ $ ->
         e.preventDefault()
         target = body.find('#' + $(@).data('target'))
         if target.attr('id') == 'contact'
-          target.toggleClass('shown')
+          target.toggleClass 'shown'
         else
-          body.animate({ scrollTop: target.offset().top + 1 })
+          body.add(html).animate({ scrollTop: target.offset().top + 1 })
           
       @makeScrollEvent($('#home'), (visible) ->
         $('nav').addClass('light', visible).toggleClass('dark', !visible))

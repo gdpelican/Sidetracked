@@ -1,12 +1,16 @@
 @import 'colors';
 
-@mixin jagged($top:transparent, $bottom: red, $flip:false) {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
+@mixin jagged {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+@mixin jagged-top($top:transparent, $bottom: red, $flip:false) {
+    @include jagged;
     left: 0;
-    z-index: 10;
     width: 100%;
     height: 1em;
     background: 
@@ -28,9 +32,34 @@
     }
 }
 
-#about:after { @include jagged(transparent, $yellow-lighter); top: -1em; }
-#upcoming:after { @include jagged(transparent, $yellow-lighter, true); padding-top: .25em; top: -.25em; }
-footer:after { @include jagged(transparent, $red-dark, true); padding-top: .25em; top: -.1em; }
+@mixin jagged-edge($left: transparent, $right: red, $flip: true) {
+    @include jagged;
+    left: -1em;
+    height: 100%;
+    width: 4em;
+    background: 
+-webkit-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,                 
+-webkit-linear-gradient(-135deg, transparent 66.66%, $left -66.66%) 0 0, 
+-webkit-linear-gradient(45deg, $right 66.66%, transparent 66.66%) 0 0,
+-webkit-linear-gradient(-225deg, transparent 33.33%, $right -33.33%) 0 0;
+    background:
+-moz-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,                 
+-moz-linear-gradient(-135deg, transparent 66.66%, $left -66.66%) 0 0, 
+-moz-linear-gradient(45deg, $right 66.66%, transparent 66.66%) 0 0,
+-moz-linear-gradient(-225deg, transparent 33.33%, $right -33.33%) 0 0;
+    background-repeat: repeat-y;
+    background-size:  100% 2em;
+    @if($flip) {
+      @include transform(scaleX(-1));
+      -ms-filter: fliph; /*IE*/
+      filter: fliph; /*IE*/
+    }
+}
+
+#about:after {    @include jagged-top(transparent, $yellow-lighter);        top: -1em; }
+#upcoming:after { @include jagged-top(transparent, $yellow-lighter, true);  padding-top: .25em; top: -.25em; }
+#contact:after {  @include jagged-edge(transparent, $red-dark); }
+footer:after {    @include jagged-top(transparent, $red-dark, true);        padding-top: .25em; top: -.1em; }
 
 @-webkit-keyframes DOWN_ICON { 
   0% { bottom: 5%; opacity: 1; }
