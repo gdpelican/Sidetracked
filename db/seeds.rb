@@ -46,13 +46,17 @@ Testimonial.create! [
     picture: File.open("#{Rails.root}/public/images/testimonials/paulo.jpg") }
 ]
 
+ContactMethod.destroy_all
+email = ContactMethod.create! name: 'Email', value: 'sidetrackedinfo@gmail.com'
+phone = ContactMethod.create! name: 'Phone', value: '717 226 0339'
+
 Social.destroy_all
 Social.create! [
-  { name: 'Facebook', href: 'https://www.facebook.com/SidetrackedProductions', title: 'Like us on Facebook', icon: 'facebook' },
-  { name: 'Twitter', href: 'http://www.twitter.com/SidetrackedProductions', title: 'Follow us on Twitter', icon: 'twitter' },
-  { name: 'Youtube', href: 'http://www.youtube.com/YourSidetracked', title: 'Watch us on Youtube', icon: 'youtube' },
-  { name: 'Email', href: 'mailto:sidetrackedinfo@gmail.com', icon: 'envelope'},
-  { name: 'Buy our CD!', href: 'http://www.example.com', icon: 'music' },
+  { name: 'Facebook', href: 'https://www.facebook.com/SidetrackedProductions', title: 'Like us on Facebook', icon: 'facebook', on_contact: true },
+  { name: 'Twitter', href: 'http://www.twitter.com/SidetrackedProductions', title: 'Follow us on Twitter', icon: 'twitter', on_contact: true },
+  { name: 'Youtube', href: 'http://www.youtube.com/YourSidetracked', title: 'Watch us on Youtube', icon: 'youtube', on_contact: true },
+  { name: 'Email', href: "mailto:#{email.value}", icon: 'envelope'},
+  { name: 'Buy our CD!', href: 'http://www.example.com', icon: 'music', on_contact: true },
   { name: 'View our Demo', href: 'http://www.youtube.com/watch?v=3YhBU5dKOso', icon: 'film' }
 ]
 

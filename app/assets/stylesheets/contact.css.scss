@@ -10,12 +10,56 @@
   top: 0;
   box-shadow: 0 0 4em 0 black;
   &.shown { right: 0; }
-  
+
   .close {
     color: $red-darkest;
     &:hover { color: black; }
     text-shadow: 0 0 1px $yellow-lighter; 
     float: right;
+  }  
+  
+  h2 { 
+    padding: .5em 0; 
+    font-size: 2em; 
+  }
+  
+  p {
+    color: white;
+    font-size: 1.25em;
+    padding: .5em 0;
+  }
+  
+  .contact-method {
+    padding: .5em 0;
+    font-weight: bold;
+    color: $yellow-lighter;
+    span {
+      width: 12em;
+      display: inline-block;
+    }
+    a {
+      color: $yellow-lighter;
+      &:hover { color: white; }
+    }
+  }
+  
+  .body {
+    padding: 2em 0 5em;
+  }
+  
+  .socials {
+    width: 100%;
+    padding-right: 1em;
+    
+    .round-link {
+      font-size: .75em;
+      margin: .5em;
+      i {
+        font-size: 2em;
+        left: .25em;
+        bottom: .4em; 
+      }
+    }
   }
   
 }

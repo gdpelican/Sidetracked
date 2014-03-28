@@ -1,1 +1,20 @@
 <%= link_to font_icon('times'), 'javascript:;', class: 'slide-to close', data: { target: 'contact' } %>
+<%= content_tag :h2, 'Let\'s be friends!' %>
+
+<%= content_tag :div, '', class: 'body' do %>
+	<%= content_tag :p, 'Ready to get in touch?<br/>We\'re excited to meet you!<br/>(We hear you\'re awesome.)'.html_safe %>
+	
+	<%= content_tag :p, 'The best way to reach us is through email:' %>
+	<%= content_tag :div, font_icon('envelope') + content_tag(:span, link_to(@contact.fetch(:email), "mailto:#{@contact.fetch(:email)}")), class: 'contact-method' %>
+	
+	<%= content_tag :p, 'Or, you can contact Kimberlie directly by phone:' %>
+	<%= content_tag :div, font_icon('phone') + content_tag(:span, @contact.fetch(:phone)), class: 'contact-method' %>
+
+	<%= content_tag :p, 'Hope to hear from you soon!' %>
+<% end %>
+
+<%= content_tag :div, '', class: 'socials' do %>
+	<% @contact[:socials].each do |social| %>
+		<%= round_link_for social, show_name: false %>
+	<% end %>
+<% end %>
