@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321073756) do
+ActiveRecord::Schema.define(version: 20140328205952) do
+
+  create_table "contact_methods", force: true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "entries", force: true do |t|
     t.string   "type"
@@ -48,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140321073756) do
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "on_contact", default: false
   end
 
   create_table "performances", force: true do |t|

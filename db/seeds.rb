@@ -10,10 +10,8 @@ Entry.destroy_all
 
 Performer.create! [
   {title: 'Shoshanna Ruth', 
-   subtitle: 'Captain',      
    picture: File.open("#{Rails.root}/public/images/performers/shosh.jpg")}, 
   {title: 'Kimberlie Cruse', 
-   subtitle: 'First Mate',  
    picture: File.open("#{Rails.root}/public/images/performers/kim.jpg")}]
 
 Act.create! [

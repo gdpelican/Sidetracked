@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   PAGES = [:home, :about, :upcoming, :contact]
   
   def index
+    @alt = params[:alt]
+    
     @visible = { testimonials: Testimonial.visible,
                  acts:         Act.all,
                  future_gigs:  Gig.future.visible.map(&:gig_entry),
