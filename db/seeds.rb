@@ -28,20 +28,40 @@ Act.create! [
 ]
 
 Testimonial.create! [
-  { title: 'Amanda Ash', 
-    subtitle: 'Edmonton Journal', 
-    content: 'Cruse is a pickup line master', 
-    link: 'http://www.edmontonjournal.com/Edmonton+Fringe+performers+share+their+pickup+lines/7118108/story.html',
-    picture: File.open("#{Rails.root}/public/images/testimonials/ej.jpg") },
+  { title: 'Mark Lewis',
+    subtitle: 'Lauging Moon Productions', 
+    content: 'Smart, talented, funny AND they know how to play. Their shows are energetic, entertaining, well-rehearsed and spot-on.',
+    link: 'http://www.laughingmooninc.com/',
+    picture: File.open("#{Rails.root}/public/images/testimonials/mark.jpg") },
   { title: 'Steven Samuels', 
     subtitle: 'Mountain Xpress Asheville', 
     content: 'Two very funny women', 
     link: 'http://www.mountainx.com/article/30069/Review-of-the-Americana-Burlesque-and-Sideshow-fest',
     picture: File.open("#{Rails.root}/public/images/testimonials/mx.jpg") },
+  { title: 'Jack "Doc" Strauss',
+    subtitle: 'Director, Coxcomb Academy',
+    content: 'Best act to come out of Vaudeville in years...I cannot recommend them enough.',
+    link: 'http://www.coxcomb.org/',
+    picture: File.open("#{Rails.root}/public/images/testimonials/jack.jpg") },
   { title: 'Paulo Garbanzo', 
     subtitle: 'Juggler, Fool of Muncaster Castle', 
     content: 'These two are so funny, they might be a threat to my comedic empire ...Minions! Break their kneecaps!',
-    picture: File.open("#{Rails.root}/public/images/testimonials/paulo.jpg") }
+    picture: File.open("#{Rails.root}/public/images/testimonials/paulo.jpg") },
+  { title: 'Amanda Ash', 
+    subtitle: 'Edmonton Journal', 
+    content: 'Cruse is a pickup line master', 
+    link: 'http://www.edmontonjournal.com/Edmonton+Fringe+performers+share+their+pickup+lines/7118108/story.html',
+    picture: File.open("#{Rails.root}/public/images/testimonials/ej.jpg") },
+  { title: 'Remi',
+    subtitle: 'Age 6', 
+    content: 'It was silly. Good silly.', 
+    link: '',
+    picture: File.open("#{Rails.root}/public/images/testimonials/remi.jpg") },
+  { title: 'Peter Gaffney', 
+    subtitle: 'Neo Sequiter Productions',
+    link: 'http://www.neosequiter.com', 
+    content: 'These girls are tighter than anybody.',
+    picture: File.open("#{Rails.root}/public/images/testimonials/peter.jpg") }
 ]
 
 ContactMethod.destroy_all
