@@ -31,16 +31,19 @@
   
   .contact-method {
     padding: .5em 0;
+    font-size: .95em;
     font-weight: bold;
     color: $yellow-lighter;
     span {
-      width: 12em;
+      width: 11em;
+      padding: 0 .5em;
       display: inline-block;
     }
     a {
       color: $yellow-lighter;
       &:hover { color: white; }
     }
+    i { font-size: 1.1em; }
   }
   
   .body {
