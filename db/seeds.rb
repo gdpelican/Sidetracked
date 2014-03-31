@@ -74,7 +74,7 @@ Social.create! [
   { name: 'Twitter', href: 'http://www.twitter.com/SidetrackedProductions', title: 'Follow us on Twitter', icon: 'twitter', on_contact: true },
   { name: 'Youtube', href: 'http://www.youtube.com/YourSidetracked', title: 'Watch us on Youtube', icon: 'youtube', on_contact: true },
   { name: 'Email', href: "mailto:#{email.value}", icon: 'envelope'},
-  { name: 'Buy our CD!', href: 'http://www.example.com', icon: 'music', on_contact: true },
+  { name: 'Buy our CD!', href: 'http://bit.do/SidetrackedCD', icon: 'music', on_contact: true },
   { name: 'View our Demo', href: 'http://www.youtube.com/watch?v=3YhBU5dKOso', icon: 'film' }
 ]
 
