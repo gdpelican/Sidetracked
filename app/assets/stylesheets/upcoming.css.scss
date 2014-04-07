@@ -85,6 +85,16 @@
           box-shadow: 0 0 2px 2px $black-fade-some;
         }
         .entry {
+          
+          &.flip {
+            left: inherit;
+            right: -2.5em;
+            &:before {
+              left: inherit;
+              right: 2em;
+            }
+          }
+          
           &:before {
             content: '';
             width: 0;

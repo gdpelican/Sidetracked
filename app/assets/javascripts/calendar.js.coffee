@@ -18,6 +18,12 @@ $ ->
       url = if (month? && year?) then "/calendar/#{year}/#{month}" else "/calendar/"
       $.post url, @placeCalendar
     placeCalendar: (data) ->
-      $('article.calendar').html(data)
-      
+      $('article.calendar').html(data).find('.events').each (index, el) => 
+        element = $(el)
+        if element.offset().left + \
+           element.width() + \
+           element.find('.entry').width() > \
+           window.screen.width then \
+           element.find('.entry').addClass('flip')
+           
   @Calendar.initialize()
