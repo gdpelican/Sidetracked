@@ -54,30 +54,27 @@ nav {
   right: 1.5em;
   z-index: 10;
   transition: all 2s; 
-  &.light a { color: $yellow-lighter; text-shadow: 1px 1px 3px $yellow-dark; }
-  &.dark a { color: $yellow-dark;     text-shadow: 1px 1px 3px $yellow-lighter; }
+  &.light a { 
+    color: $yellow-lighter; 
+    &:hover { border-bottom: 4px double $yellow-lighter; }
+  }
+  &.dark a { 
+    color: $yellow-dark;     
+    &:hover { border-bottom: 4px double $yellow-dark; }
+  }
   a {
     text-decoration: none;
     font-family: Narrow;
     font-size: 175%;
-    padding-left: .5em;
+    margin-left: .5em;
     position: relative;
-    &:hover:after {
-      background: url("swirly_light.png") no-repeat center;
-      content: '';
-      width: 100%;
-      background-size: 1.75em .6em;
-      height: 1em;
-      position: absolute;
-      top: .7em;
-      left: .25em;
-    }
   }
 }
 
 h1 {
   color: $red-dark;
   text-shadow: 2px 2px 4px black;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=45);
 }
 
 h2 {
@@ -85,6 +82,7 @@ h2 {
   letter-spacing: 2px;
   color: $yellow-light;
   text-shadow: 1px 1px 2px black;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=45);
   font-size: 3em;
   a { color: $yellow-light;
       font-size: .5em; }
