@@ -19,19 +19,19 @@ puts 'Performers created'
 Act.create! [
   { title: 'Bag Lady Theatre',
     picture: File.open("#{Rails.root}/public/images/acts/baglady.jpg"),
-    link: '/audio/sample.mp3' },
+    link: '/audio/DottieandLorraine.mp3' },
   { title: 'Fairy Ring Theatre',
     picture: File.open("#{Rails.root}/public/images/acts/fairies.jpg"),
-    link: '/audio/sample.mp3' },
+    link: '/audio/Faeries.mp3' },
   { title: 'Wandering Gypsy Theatre', 
     picture: File.open("#{Rails.root}/public/images/acts/gypsies.jpg"),
-    link: '/audio/sample.mp3' },
+    link: '/audio/WGT.mp3' },
   { title: 'Anne Bonney & Mary Reed',
     picture: File.open("#{Rails.root}/public/images/acts/pirates.jpg"),
-    link: '/audio/sample.mp3' },
+    link: '/audio/pirates.mp3' },
   { title: 'Fire & Brimstone', 
     picture: File.open("#{Rails.root}/public/images/acts/devils.jpg"),
-    link: '/audio/sample.mp3' }
+    link: '/audio/Devils.mp3' }
 ]
 puts 'Acts created'
 
