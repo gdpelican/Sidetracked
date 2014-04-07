@@ -1,5 +1,7 @@
 class Entry < ActiveRecord::Base
   
+  scope :of_type, ->(type) { where type: type.to_s.humanize }
+  
   has_attached_file :picture,
     styles: { thumb: "100x100#"},
     storage: :s3,

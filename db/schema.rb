@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140328205952) do
     t.string   "state"
     t.string   "address"
     t.text     "description"
+    t.datetime "first_performance"
+    t.datetime "last_performance"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "link"

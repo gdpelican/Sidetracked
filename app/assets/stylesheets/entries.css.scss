@@ -8,6 +8,16 @@
 
 .entry-container {
   text-align: left;
+  
+  &.gigentries-container {
+    .gigentry { padding-bottom: 1em; }
+    .show-hidden-entries {
+      text-align: right;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+  
   &.acts-container {
     .act {
       position: relative;
@@ -55,11 +65,11 @@
     }
     .title { line-height: 4em; }
   }
-  &.hidden-entry-container { display: none; }
   
   padding: .5em 0;
   
   .entry {
+    &.hidden { display: none; }
     width: 49.5%;
     min-width: 13em;
     color: black;

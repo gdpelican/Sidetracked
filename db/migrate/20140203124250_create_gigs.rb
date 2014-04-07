@@ -6,6 +6,8 @@ class CreateGigs < ActiveRecord::Migration
       t.string :state
       t.string :address
       t.text :description
+      t.datetime :first_performance
+      t.datetime :last_performance
       
       t.timestamps
     end

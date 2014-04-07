@@ -8,7 +8,7 @@ $ ->
         
         if !$(act).hasClass 'playing'
           @master().find('.playing').removeClass('playing')
-          @playing = new Audio($(this).data('href'))
+          @playing = new Audio($(act).data('link'))
           @playing.play()
           
         $(act).toggleClass('playing')

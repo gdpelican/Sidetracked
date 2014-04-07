@@ -3,7 +3,7 @@ $ ->
     initialize: ->
       @master().on 'click', '.show-hidden-entries', ->
         $(@).slideUp ->
-          $(@).siblings('.hidden-entry-container').slideDown()
+          $(@).siblings('.hidden').slideDown -> $(@).css('display', 'inline-block')
     master: ->
       $('body')
       

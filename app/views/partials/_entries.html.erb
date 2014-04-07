@@ -1,9 +1,4 @@
 <% shown = @visible.fetch(type, []) %>
 <% hidden = @hidden.fetch(type, []) %>
 
-<%= render template: 'entries/index', locals: { entries: shown, visible: true } %>
-
-<% if hidden.any? %>
-	<%= link_to 'More!', 'javascript:;', class: 'show-hidden-entries' %>
-	<%= render template: 'entries/index', locals: { entries: hidden, visible: false } %>
-<% end %>
+<%= render template: 'entries/index', locals: { entries: shown, hidden: hidden } %>

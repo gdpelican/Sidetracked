@@ -4,13 +4,14 @@ class Gig < ActiveRecord::Base
   has_many :performances
   belongs_to :act
   belongs_to :gig_entry
-  
+
   before_save :update_gig_entry
+  before_save :update_performance_data
   
-  scope :with_gigs, -> { select('gigs.*')
-                        .joins('inner join performances on gigs.id = performances.gig_id') }
-  scope :future, -> { with_gigs.where('performances.date >= ?', Date.today.beginning_of_day).uniq }
-  scope :past, -> {   where('NOT id = ANY (\'{?}\')', send(:future).pluck(:id)) rescue all }
+  default_scope { order(:first_performance) } 
+  
+  scope :future, -> { where('last_performance >= ?', Date.today.beginning_of_day) }
+  scope :past, -> {   where('last_performance < ?',  Date.today.beginning_of_day) }
   
   def date_range
     min, max = performances.minimum(:date), performances.maximum(:date)
@@ -32,6 +33,12 @@ class Gig < ActiveRecord::Base
     when :day_year  then "#{ord}, %Y"
     else                 "%b #{ord}, %Y"
     end
+  end
+  
+  def update_performance_data
+    return if performances.empty?
+    self.first_performance = performances.minimum :date
+    self.last_performance = performances.maximum :date
   end
   
   def update_gig_entry
