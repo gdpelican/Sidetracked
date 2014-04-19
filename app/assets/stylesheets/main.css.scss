@@ -37,11 +37,9 @@ section {
     &.left {
       display: inline-block;
       margin: 0 2em;
-      min-width: 25em;
       max-width: 35em;
     }
     &.right {
-      min-width: 15em; 
       max-width: 35em;      
     }
   }

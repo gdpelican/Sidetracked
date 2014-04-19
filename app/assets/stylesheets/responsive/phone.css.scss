@@ -1,5 +1,49 @@
 @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-		
+and (min-width : 320px) 
+and (max-width : 520px) {
+  
+  nav {
+    right: 0 !important;
+    width: 100%;
+    text-align: center;
+    .dark {
+      background: $black-fade-some;
+      padding: .5em;
+    }
+  }
+  
+  section article.left {
+    min-width: inherit;
+  }
+  
+	#home {
+	  .title {
+  	  h1 { font-size: 250% !important; }
+  	  h2 {
+  	    font-size: 150%;
+        padding-bottom: 1em;
+  	  }
+	  }
+	  .round-link { margin: .25em; }
+	}
+	
+	#about {
+	  .entry-container .entry { width: 100% !important; }
+	  .round-link { margin: .25em !important; }
+	}
+	
+	#upcoming {
+	  article.calendar {
+	    table td { padding: .5em !important; }
+	  }
+	}
+	
+	footer {
+	  .copyright { 
+	    padding-bottom: 3em !important;
+      font-size: .75em !important;
+    }
+    .top-link { text-align: center !important; }
+	}
+	
 }
