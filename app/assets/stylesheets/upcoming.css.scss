@@ -84,8 +84,13 @@
           opacity: 1 !important;
           box-shadow: 0 0 2px 2px $black-fade-some;
         }
-        .entry {
-          
+        .entry {    
+          .title { font-weight: bold; }
+          .subtitle { font-size: .75em; font-style: italic; }
+          .content { 
+            font-weight: normal;
+            a { font-weight: bold; }
+          }
           &.flip {
             left: inherit;
             right: -2.5em;
