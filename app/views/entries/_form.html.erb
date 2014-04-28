@@ -1,11 +1,16 @@
-<%= content_tag :div, '', class: 'entry-container' do %>
-	<%= semantic_form_for @entry do |f| %>
-		<%= f.input :title 							if @entry.uses :title %>
-		<%= f.input :subtitle 						if @entry.uses :subtitle %>
-		<%= f.input :content  						if @entry.uses :content %>
-		<%= f.input :picture, as: :file 			if @entry.uses :picture %>
-		<%= image_tag @entry.picture.url(:thumb) 	if @entry.uses(:picture) && @entry.persisted? %>
+<%= semantic_form_for @entry, html: { class: 'entry-container' } do |f| %>
+	<%= content_tag :div, '', class: "#{@entry.type.to_s.downcase.singularize} entry edit" do %>
+		<%= content_tag :div, '', class: 'picture' do %>
+			<%= image_tag @entry.picture.url(:thumb), class: 'picture' %>
+			<%= f.input :picture, as: :file, label: false %>
+		<% end if @entry.uses :picture %>
+		<%= content_tag :div, '', class: 'entry-text-wrapper' do %>
+			<%= f.input :title, label: false, input_html: { class: 'title', placeholder: 'Title...' } 					if @entry.uses :title %>
+			<%= f.input :subtitle, label: false, input_html: { class: 'subtitle', placeholder: 'Subtitle...' } 			if @entry.uses :subtitle %>
+			<%= f.input :content, label: false, input_html: { class: 'content', placeholder: 'Content...', rows: 5 }	if @entry.uses :content %>
+			<%= f.input :link, label: false, input_html: { class: 'link', placeholder: 'A link to more info...' } 		if @entry.uses :link %>
+		<% end %>
 		<%= f.input :type, as: :hidden %>
-		<%= f.submit %>
 	<% end %>
+	<%= f.submit %>
 <% end %>

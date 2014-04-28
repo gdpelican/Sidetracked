@@ -3,9 +3,10 @@ class EntriesController < ActionController::Base
   before_action :set_type
   before_action :load_entry, only: [:show, :edit, :update, :destroy]
   before_action :build_entry, only: [:new, :create]
+  before_action :load_gig, only: [:new, :edit], if: :is_gig_entry?
   
   def index
-    @entries = [Entry.new({ type: entry_type, title: "New #{@type}" })] + Entry.of_type(@type)
+    @entries = [build_entry("New #{@type.humanize}")] + Entry.of_type(@type)
     @types = Entry.types - [:gig_entry] + [:gig]
   end
 
@@ -57,8 +58,16 @@ class EntriesController < ActionController::Base
     @entry = Entry.find params[:id]
   end
   
-  def build_entry
-    @entry = Entry.new entry_params || { type: @type.humanize }
+  def load_gig
+    @gig = Gig.find_by_entry @entry
+  end
+  
+  def build_entry(title = nil)
+    @entry = Entry.new entry_params || { type: entry_type, title: title }
+  end
+  
+  def is_gig_entry?
+    @type == 'gig'
   end
   
   def entry_params
@@ -66,7 +75,7 @@ class EntriesController < ActionController::Base
   end
   
   def entry_type
-    @type == 'gig' ? 'GigEntry' : @type.to_s.humanize
+    is_gig_entry? ? 'GigEntry' : @type.to_s.humanize
   end
   
   def set_type

@@ -1,5 +1,5 @@
 class Performer < Entry
   def self.unused
-    [:subtitle, :content]
+    [:subtitle, :content, :link]
   end
 end

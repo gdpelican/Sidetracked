@@ -1,11 +1,5 @@
 class GigsController < ActionController::Base
 
-  def new
-  end
-
-  def edit
-  end
-
   def create
     respond_to do |format|
       if @gig.save

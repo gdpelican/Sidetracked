@@ -5,8 +5,6 @@
 
 <%= content_tag :div, '', class: 'entry-container' do %>
 	<% @entries.each do |entry| %>
-		<%= content_tag :div, class: 'entry' do %>
 			<%= render template: 'entries/show', locals: { entry: entry, show_links: true } %>
-		<% end %>
 	<% end %>
 <% end %>

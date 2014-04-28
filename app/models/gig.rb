@@ -13,6 +13,10 @@ class Gig < ActiveRecord::Base
   scope :future, -> { where('last_performance >= ?', Date.today.beginning_of_day) }
   scope :past, -> {   where('last_performance < ?',  Date.today.beginning_of_day) }
   
+  def self.find_by_entry(entry)
+    where(gig_entry_id: entry.id).first || new 
+  end
+  
   def date_range
     min, max = performances.minimum(:date), performances.maximum(:date)
     return if min.blank? || max.blank?

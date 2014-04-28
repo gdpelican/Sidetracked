@@ -2,12 +2,55 @@
 @import 'fonts';
 @import 'main';
 
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder { color: red; }
+
 body.admin {
   background: $red-dark;
   color: black;
   h2 { 
     padding-top: .5em .05em 0; 
     text-align: center; 
+  }
+  
+  form.entry-container {
+
+    ul, li { list-style-type: none; }
+    .entry-text-wrapper {
+      max-width: inherit !important; 
+    }
+    input[type=text], textarea {
+      width: 100%;
+      background: rgba(255,255,255,.3);
+      padding: .5em 2em;
+      border: 1px solid $black-fade-some;
+      font-family: Thin;
+    }
+    .title {
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: .33em 1.33em !important;
+    }
+    .subtitle {
+      font-size: .9em;
+      font-style: italic;
+    }
+    input[type=file] { width: 6.5em; }
+    input[type=submit] {
+      border: 0;
+      border-radius: .25em;
+      color: $yellow-light;
+      background: $red-dark;
+      margin: auto;
+      display: block;
+      padding: .25em;
+      font-family: Narrow;
+      font-size: 3em;
+      margin: .5em auto;
+      &:hover { box-shadow: 0 0 5px black; }
+    }
   }
   
   .entry-types {
@@ -31,7 +74,7 @@ body.admin {
     
     .entry {
       font-size: .9em;
-      &:nth-child(2n) { background: rgba(0,0,0,.1); }
+      &:not(.edit):nth-child(2n) { background: rgba(0,0,0,.1); }
       text-align: center;
       padding: 1em;
       margin: auto;

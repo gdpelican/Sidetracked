@@ -2,6 +2,10 @@ class Entry < ActiveRecord::Base
   
   scope :of_type, ->(type) { where type: Entry.resolve_gig(type) }
   
+  def raw_title
+    self[:title]
+  end
+  
   def uses(field)
     !self.class.unused.include? field
   end

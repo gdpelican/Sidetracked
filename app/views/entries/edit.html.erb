@@ -1,2 +1,6 @@
-<%= content_tag :h2, "Editing #{@entry.title}" %>
-<%= render 'form' %>
+<%= content_tag :h2, "Editing #{@entry.raw_title}" %>
+<% if @entry.type == 'GigEntry' %>
+	<%= render 'gigs/form' %>
+<% else %>
+	<%= render 'form' %>
+<% end %>
