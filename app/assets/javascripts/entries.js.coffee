@@ -6,5 +6,3 @@ $ ->
           $(@).siblings('.hidden').slideDown -> $(@).css('display', 'inline-block')
     master: ->
       $('body')
-      
-  @Entries.initialize()

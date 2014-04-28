@@ -16,5 +16,5 @@ $ ->
     master: ->
       $('body').find('.acts-container')
     playing: null
-      
-  @Acts.initialize()
+  
+  @Acts.initialize() if $('body').find('.acts-container').length

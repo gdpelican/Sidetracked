@@ -25,5 +25,3 @@ $ ->
            element.find('.entry').width() > \
            window.screen.width then \
            element.find('.entry').addClass('flip')
-           
-  @Calendar.initialize()

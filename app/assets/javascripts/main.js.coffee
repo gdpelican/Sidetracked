@@ -31,5 +31,3 @@ $ ->
     makeScrollEvent: (element, action) =>
       $(window).on 'scroll', =>
         action @Main.isVisible(element)
-    
-  @Main.initialize()

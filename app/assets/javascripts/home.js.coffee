@@ -16,5 +16,3 @@ $ ->
       listen.find('span:visible').slideUp ->
         $(@).siblings('span').slideDown()
       @Home.video().volume = !@Home.video().volume
-      
-  @Home.initialize()
