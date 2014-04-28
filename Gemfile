@@ -3,6 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 gem 'pg'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +43,8 @@ end
 
 gem 'paperclip', '~> 3.5.2'
 gem 'aws-sdk', '~> 1.5.7'
+
+gem 'formtastic', '~> 2.2.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
