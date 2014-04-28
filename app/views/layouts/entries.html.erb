@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sidetracked</title>
+  <%= stylesheet_link_tag	 "admin", media: "all", "data-turbollinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= favicon_link_tag %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body class="admin">
+
+<%= yield %>
+
+</body>
+</html>

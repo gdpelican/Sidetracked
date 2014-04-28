@@ -1,0 +1,11 @@
+<%= content_tag :div, '', class: 'entry-container' do %>
+	<%= semantic_form_for @entry do |f| %>
+		<%= f.input :title 							if @entry.uses :title %>
+		<%= f.input :subtitle 						if @entry.uses :subtitle %>
+		<%= f.input :content  						if @entry.uses :content %>
+		<%= f.input :picture, as: :file 			if @entry.uses :picture %>
+		<%= image_tag @entry.picture.url(:thumb) 	if @entry.uses(:picture) && @entry.persisted? %>
+		<%= f.input :type, as: :hidden %>
+		<%= f.submit %>
+	<% end %>
+<% end %>

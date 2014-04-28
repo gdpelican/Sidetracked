@@ -10,6 +10,7 @@
   text-align: left;
   
   &.gigentries-container {
+    text-align: center;
     .gigentry { padding-bottom: 1em; }
     .show-hidden-entries {
       text-align: right;
@@ -44,7 +45,7 @@
       &:hover, &.playing {
         .picture:before { background: $red-fade-some }
         .picture:after { opacity: .75 !important; margin: 1.5em 2em; }
-      }
+    }
       &.playing {
         .picture:after {
           width: .5em;

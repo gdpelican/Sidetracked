@@ -1,4 +1,6 @@
 <% hidden ||= false %>
+<% show_links ||= false %>
+
 <%= content_tag :div, '', class: "#{entry.type.to_s.downcase.singularize} entry #{'hidden' if hidden}", data: ({ link: entry.link } if entry.link) do %>
 	<%= content_tag :div, image_tag(entry.picture.url(:thumb)), class: 'picture' %>
 	<%= content_tag :div, '', class: 'entry-text-wrapper' do %>
@@ -6,4 +8,9 @@
 		<%= content_tag :div, entry.subtitle, class: 'subtitle' %>
 		<%= content_tag :div, entry.content, class: 'content' %>
 	<% end %>
+	<%= content_tag :div, '', class: 'entry-links' do %>
+		<%= link_to 'Edit', edit_entry_path(entry) if entry.persisted? %>
+		<%= link_to 'Destroy', entry_path(entry), method: :delete, confirm: 'Are you sure you want to destroy this?' if entry.persisted? %>
+		<%= link_to 'Create', new_entry_path(entry) if entry.new_record? %>
+	<% end if show_links %>
 <% end %>

@@ -8,7 +8,7 @@ class Testimonial < Entry
   end
   
   def content
-    "\"#{self[:content]}\""
+    "\"#{self[:content]}\"" if self[:content]
   end
   
 end

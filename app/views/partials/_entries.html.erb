@@ -1,4 +1,17 @@
 <% shown = @visible.fetch(type, []) %>
 <% hidden = @hidden.fetch(type, []) %>
 
-<%= render template: 'entries/index', locals: { entries: shown, hidden: hidden } %>
+<% if shown.any? %>
+	<%= content_tag :div, '', class: "entry-container #{shown.first.type.downcase.to_s.pluralize}-container" do %>
+		<% shown.each do |entry| %>
+			<%= render template: 'entries/show', locals: { entry: entry } %>
+		<% end %>
+		
+		<% if hidden.any? %>
+			<%= link_to 'More!', 'javascript:;', class: 'show-hidden-entries' %>
+			<% hidden.each do |entry| %>
+				<%= render template: 'entries/show', locals: { entry: entry, hidden: true } %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

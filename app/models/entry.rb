@@ -1,6 +1,22 @@
 class Entry < ActiveRecord::Base
   
-  scope :of_type, ->(type) { where type: type.to_s.humanize }
+  scope :of_type, ->(type) { where type: Entry.resolve_gig(type) }
+  
+  def uses(field)
+    !self.class.unused.include? field
+  end
+  
+  def self.resolve_gig(type)
+    type == 'gig' ? 'GigEntry' : type.to_s.singularize.humanize
+  end
+  
+  def self.types 
+    [:gig_entry, :testimonial, :performer, :act]
+  end
+  
+  def self.unused
+    []
+  end
   
   has_attached_file :picture,
     styles: { thumb: "100x100#"},

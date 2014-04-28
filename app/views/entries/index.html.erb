@@ -1,16 +1,12 @@
-<% hidden ||= [] %>
 
-<% if entries.any? %>
-	<%= content_tag :div, '', class: "entry-container #{entries.first.type.downcase.to_s.pluralize}-container" do %>
-		<% entries.each do |entry| %>
-			<%= render template: 'entries/show', locals: { entry: entry } %>
-		<% end %>
-		
-		<% if hidden.any? %>
-			<%= link_to 'More!', 'javascript:;', class: 'show-hidden-entries' %>
-			<% hidden.each do |entry| %>
-				<%= render template: 'entries/show', locals: { entry: entry, hidden: true } %>
-			<% end %>
+<%= content_tag :div, '', class: 'entry-types' do %>
+	<% @types.each { |type| concat entry_title_link type } %>
+<% end %>
+
+<%= content_tag :div, '', class: 'entry-container' do %>
+	<% @entries.each do |entry| %>
+		<%= content_tag :div, class: 'entry' do %>
+			<%= render template: 'entries/show', locals: { entry: entry, show_links: true } %>
 		<% end %>
 	<% end %>
 <% end %>

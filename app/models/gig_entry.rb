@@ -12,7 +12,7 @@ class GigEntry < Entry
   end
   
   def content
-    self[:content].html_safe
+    self[:content].html_safe if self[:content]
   end
 
 end
