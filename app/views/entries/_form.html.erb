@@ -1,4 +1,4 @@
-<%= semantic_form_for @entry, html: { class: 'entry-container' } do |f| %>
+<%= semantic_form_for @entry, html: { class: 'entry-container admin' } do |f| %>
 	<%= content_tag :div, '', class: "#{@entry.type.to_s.downcase.singularize} entry edit" do %>
 		<%= content_tag :div, '', class: 'picture' do %>
 			<%= image_tag @entry.picture.url(:thumb), class: 'picture' %>

@@ -15,16 +15,18 @@ body.admin {
     text-align: center; 
   }
   
-  form.entry-container {
+  form.admin {
 
     ul, li { list-style-type: none; }
     .entry-text-wrapper {
       max-width: inherit !important; 
     }
-    input[type=text], textarea {
+    input[type=text], 
+    select,
+    textarea {
       width: 100%;
       background: rgba(255,255,255,.3);
-      padding: .5em 2em;
+      padding: .5em 1em;
       border: 1px solid $black-fade-some;
       font-family: Thin;
     }
@@ -51,6 +53,26 @@ body.admin {
       margin: .5em auto;
       &:hover { box-shadow: 0 0 5px black; }
     }
+    
+    &.gig {
+      .input {
+        width: 75%;
+        text-align: center;
+        margin: .5em auto;
+        &.city {
+          display: inline-block;
+          width: 70%;
+          padding-left: 12.5%;
+        }
+        &.state {
+          display: inline-block;
+          width: 30%;
+          padding-right: 13%;
+          margin-right: -1%;
+        }
+      }
+    }
+    
   }
   
   .entry-types {

@@ -1,6 +1,9 @@
-<%= content_tag :div, '', class: 'entry-container' do %>
-	<%= semantic_form_for @gig do |f| %>
-		<%= f.inputs %>
-		<%= f.submit %>
-	<% end %>
+<%= semantic_form_for @gig, html: { class: 'entry-container admin gig' } do |f| %>
+	<%= f.input :name %>
+	<%= f.input :city, wrapper_html: { class: 'city' } %>
+	<%= f.input :state, wrapper_html: { class: 'state' } %>
+	<%= f.input :act %>
+	<%= f.input :description %>
+	<%= f.input :link, label: "Link for more info" %>
+	<%= f.submit %>
 <% end %>
