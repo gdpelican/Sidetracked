@@ -3,7 +3,20 @@
 	<%= f.input :city, wrapper_html: { class: 'city' } %>
 	<%= f.input :state, wrapper_html: { class: 'state' } %>
 	<%= f.input :act %>
-	<%= f.input :description %>
+	<%= f.input :description, input_html: { rows: 5 } %>
 	<%= f.input :link, label: "Link for more info" %>
+	
+	<%= content_tag :div, '', class: 'gig-dates' do %>
+		<%= content_tag :article, '', class: 'calendar', data: { :"gig-id" => @gig.id || 0 } %>
+		<%= content_tag :div, '', class: 'date-list' do %>
+			<%= content_tag :h2, 'Performance Dates' %>
+			<%= content_tag :ul, '', 'data-bind' => 'foreach: formattedDates' do %>
+				<%= content_tag :li, '', 'data-bind' => 'html: $data' %>
+			<% end %>
+			<%= text_field_tag :'gig[dates]', @gig.performances.map(&:to_s).join('|'), 
+				'data-bind' => 'value: stringDates', id: :dates %>
+		<% end %>
+	<% end %>	
+	
 	<%= f.submit %>
 <% end %>

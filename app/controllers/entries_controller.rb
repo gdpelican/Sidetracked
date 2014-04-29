@@ -59,7 +59,8 @@ class EntriesController < ActionController::Base
   end
   
   def load_gig
-    @gig = Gig.find_by_entry @entry
+    @gig = Gig.find_by_entry @entry.id
+    @use_knockout = true
   end
   
   def build_entry(title = nil)

@@ -8,13 +8,21 @@ class CalendarController < ActionController::Base
   def create
     params[:month] = (params[:month] || Date.today.month).to_i
     params[:year]  = (params[:year]  || Date.today.year).to_i
-    
-    render text: calendar(Performance.all.joins(:gig_entry), params, &->(event) { 
-      concat render_to_string(template: 'entries/show', locals: { entry: event.gig_entry }).html_safe
-    })
+    @performances = Performance.by_gig_id params[:gig_id] 
+
+    render json: {
+      calendar: calendar(@performances.joins(:gig_entry), params, &->(event) {
+        concat(render_event_entry event) unless params[:gig_id]
+      }).html_safe,
+      dates: @performances.to_json 
+    }
   end
   
   private
+  
+  def render_event_entry(event)
+    render_to_string(template: 'entries/show', locals: { entry: event.gig_entry }).html_safe
+  end
   
   def link_to(name, text, options = {})
     view_context.link_to name, text, options
