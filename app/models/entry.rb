@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   
+  default_scope order updated_at: :desc
   scope :of_type, ->(type) { where type: Entry.resolve_gig(type) }
   
   def raw_title

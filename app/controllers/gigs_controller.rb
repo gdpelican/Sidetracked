@@ -1,8 +1,7 @@
-class GigsController < ActionController::Base
+class GigsController < AdminContoller
 
   def create
     @gig = Gig.new gig_params
-    @gig.update_performances dates_params
     respond_to do |format|
       if @gig.save
         format.html { redirect_to gigs_url, notice: "Gig successfully created." }
@@ -14,7 +13,6 @@ class GigsController < ActionController::Base
 
   def update
     @gig = Gig.find params[:id]
-    @gig.update_performances dates_params
     respond_to do |format|
       if @gig.update_attributes gig_params
         format.html { redirect_to gigs_url, notice: "Gig successfully updated." }
@@ -36,12 +34,8 @@ class GigsController < ActionController::Base
   
   private
   
-  def dates_params
-    params.require(:gig)[:dates].split '|'
-  end
-  
   def gig_params
-    params.require(:gig).permit(:name, :city, :state, :act_id, :description, :picture, :link)
+    params.require(:gig).permit(:name, :city, :state, :act_id, :description, :picture, :link, :dates)
   end
   
 end

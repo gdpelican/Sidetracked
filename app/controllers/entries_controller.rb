@@ -1,5 +1,6 @@
-class EntriesController < ActionController::Base
+class EntriesController < AdminController
 
+  before_action :require_authentication!
   before_action :set_type
   before_action :load_entry, only: [:show, :edit, :update, :destroy]
   before_action :build_entry, only: [:new, :create]

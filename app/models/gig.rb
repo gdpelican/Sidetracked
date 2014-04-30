@@ -1,13 +1,18 @@
 class Gig < ActiveRecord::Base
   include Expandable
   
+  attr_accessor :dates
+  def dates=(value)
+    @dates = value.split '|'
+  end
+  
   has_many :performances, autosave: true
   belongs_to :act
   belongs_to :gig_entry
 
-  before_save :update_gig_entry
-  before_save :update_performance_data
-  before_destroy :destroy_gig_entry
+  before_save :update_performances
+  after_save :update_gig_entry
+  after_destroy :destroy_gig_entry
   
   default_scope { order(:first_performance) } 
   
@@ -18,16 +23,15 @@ class Gig < ActiveRecord::Base
     where(gig_entry_id: id).first || new 
   end
   
-  def update_performances(dates)
-    performances.delete_if { |perf_date| dates.include? perf_date }
+  def update_performances
+    performances.delete_if { |perf_date| self.dates.include? perf_date.to_s }
                 .each        &:mark_for_destruction
-    dates       .delete_if { |date| date_strings.include? date }
-                .each      { |date| performances.build date: date }
-    update_performance_data
-  end
-  
-  def date_strings
-    performances.map &:to_s
+    self.dates  .delete_if { |date| date_strings.include? date }
+                .each      { |date| performances.build date: date, gig_id: id }
+                
+    remaining = performances.delete_if(&:marked_for_destruction?).map(&:date)
+    self.first_performance = remaining.min
+    self.last_performance =  remaining.max
   end
   
   def date_range
@@ -51,11 +55,9 @@ class Gig < ActiveRecord::Base
   end
 
   private
-  
-  def update_performance_data
-    return if performances.empty?
-    self.first_performance = performances.minimum :date
-    self.last_performance = performances.maximum :date
+    
+  def date_strings
+    performances.map &:to_s
   end
   
   def update_gig_entry

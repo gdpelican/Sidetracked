@@ -37,4 +37,10 @@ class ApplicationController < ActionController::Base
   
   end
   
+  private
+  
+  def require_authentication!
+    
+  end  
+  
 end
