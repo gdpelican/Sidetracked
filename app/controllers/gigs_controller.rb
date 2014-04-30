@@ -1,4 +1,4 @@
-class GigsController < AdminContoller
+class GigsController < AdminController
 
   def create
     @gig = Gig.new gig_params

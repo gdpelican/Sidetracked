@@ -11,6 +11,7 @@
 </head>
 <body class="admin">
 
+<%= render partial: 'partials/login' if @prompt_for_admin %>
 <%= yield %>
 
 </body>

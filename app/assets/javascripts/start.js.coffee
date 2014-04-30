@@ -8,7 +8,8 @@ start = ->
     @Entries.initialize() 
     @Home.initialize()
   @Calendar.initialize(isAdmin) if hasCalendar
-  @Knockout.initialize() if hasCalendar && isAdmin
-   
+  @Login.initialize()           if isAdmin
+  @Knockout.initialize()        if hasCalendar && isAdmin
+
 $(document).ready start
 $(document).on 'page:load', start

@@ -11,4 +11,7 @@ Sidetracked::Application.routes.draw do
   resources :testimonials, controller: :entries, type: :testimonials
   resources :performers, controller: :entries, type: :performers
   
+  post '/login' => 'sessions#create', as: :login
+  match '/logout' => 'sessions#destroy', as: :logout, via: [:get, :post]
+  
 end
