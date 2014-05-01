@@ -9,10 +9,11 @@ $ ->
         @failure().slideUp()
         @login() if e.keyCode == 13
     login: -> 
-      $.post '/login', password: @password().val(), (success) ->
+      self = document.Login
+      $.post '/login', password: self.password().val(), (success) ->
         if success
-          document.Login.master().fadeOut()
+          self.master().fadeOut()
         else
-          document.Login.failure().slideDown()
-      @password().val ''
+          self.failure().slideDown()
+      self.password().val ''
 

@@ -1,7 +1,7 @@
 class SessionsController < ActionController::Base
   
   def create
-    session[:admin] = true if params[:password] == 'TEMP'
+    session[:admin] = true if params[:password] == ENV['ADMIN_PASSWORD']
     render json: session[:admin]
   end
   
