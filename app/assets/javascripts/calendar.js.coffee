@@ -54,7 +54,8 @@ $ ->
 
   @Knockout =
     initialize: ->
-      document.Calendar.gigCalendar = new GigCalendar($('#dates').val().split('|'))
+      initial = if $('#dates').val() then $('#dates').val().split('|') else []
+      document.Calendar.gigCalendar = new GigCalendar(initial)
       ko.applyBindings(document.Calendar.gigCalendar)
 
 class @GigCalendar
