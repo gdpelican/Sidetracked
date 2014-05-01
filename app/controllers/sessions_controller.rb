@@ -1,8 +1,8 @@
 class SessionsController < ActionController::Base
   
   def create
-    session[:admin] = true if params[:password] == ENV['ADMIN_PASSWORD']
-    render json: session[:admin]
+    session[:admin] = Admin.hex if params[:password] == ENV['ADMIN_PASSWORD']
+    render json: session[:admin].present?
   end
   
   def destroy
