@@ -31,6 +31,11 @@ body.admin {
       font-size: 3em;
       outline: 0;
     }
+    .failure-message {
+      display: none;
+      font-size: 1.5em;
+      color: $red-dark;
+    }
     input[type=submit] {
       border: 0;
       border-radius: .25em;

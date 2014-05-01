@@ -1,5 +1,6 @@
 <%= content_tag :div, '', class: 'login-form' do %>
 	<%= content_tag :h2, 'What''s the password?' %>
 	<%= password_field_tag :password %>
+	<%= content_tag :div, 'Nope! Please try again.', class: 'failure-message hidden' %>
 	<%= submit_tag 'Login' %>
 <% end %>
