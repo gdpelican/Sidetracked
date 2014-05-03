@@ -2,11 +2,6 @@
 and (min-device-width : 480px) 
 and (max-device-width : 1024px) {
 
-  nav.dark {
-    background: $black-fade-some;
-    padding: .5em;
-  }
-
   section article {
     .left { min-width: 25em; }
     .right { min-width: 15em; }
