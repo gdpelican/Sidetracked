@@ -1,13 +1,23 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  
   protect_from_forgery with: :exception
+  before_filter :assign_entries
+  before_filter :assign_links
   
   PAGES = [:home, :about, :upcoming, :contact]
   
-  def index
-    @alt = params[:alt]
-    
+  def index    
+    @pages = PAGES
+
+    respond_to do |format|
+      format.html
+    end
+  
+  end
+  
+  private
+  
+  def assign_entries
     @visible = { testimonials: Testimonial.visible,
                  acts:         Act.all,
                  future_gigs:  Gig.future.visible.map(&:gig_entry),
@@ -21,26 +31,15 @@ class ApplicationController < ActionController::Base
                  socials:      Social.on_contact }.with_indifferent_access
 
     @performances =    Performance.all
-    
+  end
+  
+  def assign_links
     @socials =         Social.all
     @externals =       External.all
     @contact_socials = Social.on_contact
     
-    @pages =           PAGES
-
     @cd_link =         Link.named 'Buy our CD!'
-    @demo_link =       Link.named 'View our Demo'
-    
-    respond_to do |format|
-      format.html
-    end
-  
-  end
-  
-  private
-  
-  def require_authentication!
-    
+    @demo_link =       Link.named 'View our Demo'    
   end  
   
 end
