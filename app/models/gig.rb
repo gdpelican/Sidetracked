@@ -24,8 +24,10 @@ class Gig < ActiveRecord::Base
 
   def prepare_for_save
     perfs = updated_performances
-    self.first_performance = perfs.min
-    self.last_performance =  perfs.max
+    if perfs.any?
+      self.first_performance = perfs.min.date
+      self.last_performance =  perfs.max.date
+    end
     self.gig_entry = GigEntry.build! self
   end
   
@@ -51,13 +53,21 @@ class Gig < ActiveRecord::Base
 
   private
   
-  def updated_performances 
-    performances.delete_if { |perf_date| self.dates.include? perf_date.to_s }
-                .each        &:mark_for_destruction
-    dates       .delete_if { |date| date_strings.include? date }
-                .each      { |date| performances.build date: date, gig_id: id }
-                
+  def updated_performances
+    return performances unless self.dates
+    clear_old_performances if performances.any?
+    add_new_performances 
     performances.delete_if(&:marked_for_destruction?).map(&:date)
+  end
+  
+  def clear_old_performances
+    performances.delete_if { |perf_date| self.dates.include? perf_date.to_s }
+                .each        &:mark_for_destruction  
+  end
+  
+  def add_new_performances
+    self.dates  .delete_if { |date| date_strings.include? date }
+                .each      { |date| performances.build date: date, gig_id: id }
   end
     
   def date_strings
