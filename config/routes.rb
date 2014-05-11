@@ -12,4 +12,6 @@ Sidetracked::Application.routes.draw do
   post '/login' => 'sessions#create', as: :login
   match '/logout' => 'sessions#destroy', as: :logout, via: [:get, :post]
   
+  get '/*all.html', to: redirect('/')
+  
 end
