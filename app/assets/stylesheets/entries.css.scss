@@ -20,51 +20,6 @@
   }
   
   &.acts-container {
-    .act {
-      cursor: pointer;
-      position: relative;
-      .picture { 
-        position: relative; 
-        &:before, &:after {
-          transition: background .25s ease-out;
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: transparent;
-        }
-        &:before {
-          width: 4em;
-          height: 4em;
-          margin: .5em .75em .75em .5em;
-          border-radius: 100%;
-        }
-        &:not(.playing):after {
-
-        }
-      }
-      &:hover, &.playing {
-        .picture:before { background: $red-fade-some }
-        .picture:after { opacity: .75 !important; margin: 1.5em 2em; }
-    }
-      &.playing {
-        .picture:after {
-          width: .5em;
-          border-left: .65em solid $yellow-lightest;
-          border-right: .65em solid $yellow-lightest;
-          height: 2em;
-          margin-left: 1.65em;
-        }
-      }
-      &:not(.playing) {
-        .picture:after {
-          border-bottom: 1em solid transparent;
-          border-top: 1em solid transparent;
-          border-left: 1.5em solid $yellow-lightest;
-          opacity: 0;  
-        }
-      }
-    }
     .title { line-height: 4em; }
   }
   

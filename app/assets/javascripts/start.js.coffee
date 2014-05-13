@@ -4,7 +4,6 @@ start = ->
   
   unless $('body').hasClass('admin') 
     @Main.initialize()
-    @Acts.initialize()
     @Entries.initialize() 
     @Home.initialize()
   @Calendar.initialize(isAdmin) if hasCalendar
