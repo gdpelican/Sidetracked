@@ -8,7 +8,7 @@
 							"Notable performances include: #{link_to 'The Edinburgh Fringe Festival', 'http://www.edfringe.com/'}, " +
 							"#{link_to 'The Americana Burlesque and Sideshow Festival', 'http://www.absfest.com/'} " +
 							"and #{link_to 'The Edmonton Fringe Festival', 'http://www.fringetheatre.ca/'}. ").html_safe %>
-		<%= content_tag :p, ("Want to see us in action? Click on our acts to hear some stories, or #{link_to 'check out our demo reel', @demo_link.href if @demo_link}. " + 
+		<%= content_tag :p, ("Want to see us in action? #{link_to 'Check out our demo reel', @demo_link.href if @demo_link}! " + 
 							"If you like what you hear, please do #{slide_link('get in touch', 'contact').html_safe}! We\'re available for").html_safe %>
 		<%= content_tag :ul do %>
 			<%= content_tag :li, 'Parties' %>
@@ -24,7 +24,7 @@
 <% end %>
 
 <%= content_tag :article, '', class: 'info right' do %> 
-	<%= entries_list 'Hear some stories', :acts %>
+	<%= entries_list 'Characters', :acts %>
 	<%= entries_list 'Hear some love', 	:testimonials %>
 <% end %>
 
