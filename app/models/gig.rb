@@ -25,8 +25,8 @@ class Gig < ActiveRecord::Base
   def prepare_for_save
     perfs = updated_performances
     if perfs.any?
-      self.first_performance = perfs.min.date
-      self.last_performance =  perfs.max.date
+      self.first_performance = perfs.min
+      self.last_performance =  perfs.max
     end
     self.gig_entry = GigEntry.build! self
   end
