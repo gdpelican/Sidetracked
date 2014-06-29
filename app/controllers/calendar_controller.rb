@@ -11,15 +11,19 @@ class CalendarController < ActionController::Base
     @performances = Performance.by_gig_id params[:gig_id] 
 
     render json: {
-      calendar: calendar(@performances.joins(:gig_entry), params, &->(event) {
-        concat(render_event_entry event) unless params[:gig_id]
-      }).html_safe,
+      calendar: gig_calendar(@performances.joins(:gig_entry), params),
       dates: @performances.to_json 
     }
   end
   
   private
   
+  def gig_calendar(performances, params)
+    calendar(performances, params) do |event|
+      concat render_event_entry(event) unless params[:gig_id]
+    end
+  end
+
   def render_event_entry(event)
     render_to_string(template: 'entries/show', locals: { entry: event.gig_entry }).html_safe
   end
