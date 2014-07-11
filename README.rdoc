@@ -1,4 +1,5 @@
 == README
+
 {<img src="https://codeclimate.com/github/gdpelican/Sidetracked.png" />}[https://codeclimate.com/github/gdpelican/Sidetracked]
 
 Sidetracked is a two-person female vaudeville comedy act, which has been performing fast-paced storytelling up and down the east coast for over 10 years.
