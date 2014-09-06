@@ -46,6 +46,8 @@ gem 'aws-sdk', '~> 1.5.7'
 
 gem 'formtastic', '~> 2.2.1'
 
+gem "codeclimate-test-reporter", group: :test
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

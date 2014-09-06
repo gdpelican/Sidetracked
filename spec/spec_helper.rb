@@ -1,5 +1,4 @@
 require "codeclimate-test-reporter"
-ENV["CODECLIMATE_REPO_TOKEN"] ||= "4616c2ae499ae35990ca04d3addcefee63d5d57f9dda102202c2e57feb28d9d5"
 CodeClimate::TestReporter.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
