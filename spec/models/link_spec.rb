@@ -10,17 +10,17 @@ describe Link do
   let(:external) { create :external }
   
   it "should be able to filter by links on the contact page" do
-    Link.should respond_to :on_contact
+    expect(Link).to respond_to :on_contact
     
     result = Link.on_contact
-    result.should include social
-    result.should_not include external
+    expect(result).to include social
+    expect(result).to_not include external
   end
   
   it "should be able to find links by name" do
     social.reload
-    Link.should respond_to :named
-    Link.named('Social').should eq social
+    expect(Link).to respond_to :named
+    expect(Link.named('Social')).to eq social
   end
   
 end
