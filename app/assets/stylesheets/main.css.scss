@@ -1,3 +1,4 @@
+@import 'colors_alt';
 
 @mixin stretch($top:0, $right:0, $bottom:0, $left:0) {
   position: absolute;
@@ -8,7 +9,7 @@
 }
 
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
   -moz-box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -23,7 +24,7 @@ body {
   overflow-x: hidden;
 }
 
-section { 
+section {
   background: $red-dark;
   &:before { background: $red-dark; }
   text-align: center;
@@ -40,7 +41,7 @@ section {
       max-width: 35em;
     }
     &.right {
-      max-width: 35em;      
+      max-width: 35em;
     }
   }
 }
@@ -51,13 +52,13 @@ nav {
   top: .5em;
   right: 1.5em;
   z-index: 10;
-  transition: all 2s; 
-  &.light a { 
-    color: $yellow-lighter; 
+  transition: all 2s;
+  &.light a {
+    color: $yellow-lighter;
     &:hover { border-bottom: 4px double $yellow-lighter; }
   }
-  &.dark a { 
-    color: $yellow-dark;     
+  &.dark a {
+    color: $yellow-dark;
     &:hover { border-bottom: 4px double $yellow-dark; }
   }
   a {
@@ -92,8 +93,8 @@ a {
   text-decoration: none;
 }
 
-div { 
-  font-family: Thin; 
+div {
+  font-family: Thin;
 }
 
 i.fa-film:before { font-size: .85em; }
@@ -107,7 +108,7 @@ i.fa-film:before { font-size: .85em; }
 .video {
   overflow: hidden;
   z-index: -1;
-  @include stretch(0,0,-1em,0); 
+  @include stretch(0,0,-1em,0);
   position: fixed;
   video {
     position: fixed;

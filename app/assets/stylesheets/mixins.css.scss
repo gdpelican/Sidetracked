@@ -1,3 +1,5 @@
+@import 'colors_alt';
+
 @mixin jagged {
   content: " ";
   display: block;
@@ -11,20 +13,20 @@
     left: 0;
     width: 100%;
     height: 1em;
-    background: 
--webkit-linear-gradient(45deg,  $bottom 33.33%, transparent 33.33%) 0 0,                 
--webkit-linear-gradient(-45deg, transparent 66.66%, $bottom -66.66%) 0 0, 
+    background:
+-webkit-linear-gradient(45deg,  $bottom 33.33%, transparent 33.33%) 0 0,
+-webkit-linear-gradient(-45deg, transparent 66.66%, $bottom -66.66%) 0 0,
 -webkit-linear-gradient(135deg, $top 66.66%, transparent 66.66%) 0 0,
 -webkit-linear-gradient(-135deg, transparent 33.33%, $top -33.33%) 0 0;
     background:
--moz-linear-gradient(45deg,  $bottom 33.33%, transparent 33.33%) 0 0,                 
--moz-linear-gradient(-45deg, transparent 66.66%, $bottom -66.66%) 0 0, 
+-moz-linear-gradient(45deg,  $bottom 33.33%, transparent 33.33%) 0 0,
+-moz-linear-gradient(-45deg, transparent 66.66%, $bottom -66.66%) 0 0,
 -moz-linear-gradient(135deg, $top 66.66%, transparent 66.66%) 0 0,
 -moz-linear-gradient(-135deg, transparent 33.33%, $top -33.33%) 0 0;
     background-repeat: repeat-x;
     background-size:  2em 100%;
     @if($flip) {
-      @include transform(scaleY(-1));
+      -webkit-transform: scaleY(-1);
       -ms-filter: flipv; /*IE*/
       filter: flipv; /*IE*/
     }
@@ -36,20 +38,20 @@
     height: 100%;
     z-index: -1;
     width: 4em;
-    background: 
--webkit-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,                 
--webkit-linear-gradient(-135deg, transparent 66.66%, $left -66.66%) 0 0, 
+    background:
+-webkit-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,
+-webkit-linear-gradient(-135deg, transparent 66.66%, $left -66.66%) 0 0,
 -webkit-linear-gradient(45deg, $right 66.66%, transparent 66.66%) 0 0,
 -webkit-linear-gradient(-225deg, transparent 33.33%, $right -33.33%) 0 0;
     background:
--moz-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,                 
--moz-linear-gradient(-135deg, transparent 66.66%, $left -66.66%) 0 0, 
+-moz-linear-gradient(-45deg,  $left 33.33%, transparent 33.33%) 0 0,
+-moz-linear-gradient(-135deg, transparent 66.66%, $left -66.66%) 0 0,
 -moz-linear-gradient(45deg, $right 66.66%, transparent 66.66%) 0 0,
 -moz-linear-gradient(-225deg, transparent 33.33%, $right -33.33%) 0 0;
     background-repeat: repeat-y;
     background-size:  100% 2em;
     @if($flip) {
-      @include transform(scaleX(-1));
+      -webkit-transform: scaleX(-1);
       -ms-filter: fliph; /*IE*/
       filter: fliph; /*IE*/
     }
@@ -60,12 +62,12 @@
 #contact:after {  @include jagged-edge(transparent, $red-dark); }
 footer:after {    @include jagged-top(transparent, $red-dark, true);        padding-top: .25em; top: -.1em; }
 
-@-webkit-keyframes DOWN_ICON { 
+@-webkit-keyframes DOWN_ICON {
   0% { bottom: 5%; opacity: 1; }
   89% { bottom: -10%; opacity: 0; }
   90% { bottom: 15%; opacity: 0; }
   100% { bottom: 5%; opacity: 1; } }
-  
+
 @-webkit-keyframes RIGHT_ICON {
   0% { left: 1.5em; opacity: 1; }
   89% { left: 2.5em; opacity: 0; }
@@ -125,37 +127,37 @@ footer:after {    @include jagged-top(transparent, $red-dark, true);        padd
   }
 }
 
-.round-link { 
-  @include round-link; 
-  &.listen { 
-    line-height: 275%; 
+.round-link {
+  @include round-link;
+  &.listen {
+    line-height: 275%;
     span { display: none; }
     span:first-child { display: inline; }
   }
-  &.more { 
-    padding: .2em .5em; 
-    &:hover i { @include animation(DOWN_ICON .5s); }
+  &.more {
+    padding: .2em .5em;
+    // &:hover i { @include animation(DOWN_ICON .5s); }
   }
-  &.sidetracked { 
-    padding: .2em 0 0 0; 
-    &:hover i { @include animation(RIGHT_ICON .5s); }
+  &.sidetracked {
+    padding: .2em 0 0 0;
+    // &:hover i { @include animation(RIGHT_ICON .5s); }
   }
-  &.cd { 
-    padding: .2em .5em; 
+  &.cd {
+    padding: .2em .5em;
   }
-  &.demo { 
-    padding: .2em .5em; 
+  &.demo {
+    padding: .2em .5em;
   }
   &.book {
     line-height: 250%;
   }
   &.top {
-    &:hover i { @include animation(UP_ICON .5s); }
+    // &:hover i { @include animation(UP_ICON .5s); }
   }
 }
 
 #about .round-link {
-  background: $yellow-fade-some;  
+  background: $yellow-fade-some;
   text-shadow: 2px 2px 3px $yellow-darker;
   &:after { color: $yellow-dark; }
 }

@@ -1,3 +1,5 @@
+@import 'colors_alt';
+
 .show-hidden-entries {
   font-family: Narrow;
   letter-spacing: 2px;
@@ -8,7 +10,7 @@
 
 .entry-container {
   text-align: left;
-  
+
   &.gigentries-container {
     text-align: center;
     .gigentry { padding-bottom: 1em; }
@@ -18,13 +20,13 @@
       display: inline-block;
     }
   }
-  
+
   &.acts-container {
     .title { line-height: 4em; }
   }
-  
+
   padding: .5em 0;
-  
+
   .entry {
     &.hidden { display: none; }
     width: 49.5%;
@@ -33,7 +35,7 @@
     text-align: left;
     display: inline-block;
     vertical-align: top;
-    
+
     .picture {
       img {
         float: left;
@@ -56,5 +58,5 @@
       padding-top: .25em;
     }
   }
-  
+
 }

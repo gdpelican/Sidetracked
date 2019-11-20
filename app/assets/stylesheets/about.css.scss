@@ -1,3 +1,4 @@
+@import 'colors_alt';
 
 #about {
   $color: $yellow-lightest;
@@ -6,7 +7,7 @@
   position: relative;
   z-index: 2;
   top: 1em;
-  
+
   #carrot {
     position: absolute;
     left: 0;
@@ -16,13 +17,13 @@
     max-width: 30%;
     z-index: -1;
   }
-  
+
   >article {
     display: inline-block;
     &.about {
       text-align: left;
-      p { 
-        font-size: 1.25em; 
+      p {
+        font-size: 1.25em;
         padding: .35em 0;
       }
       ul {
@@ -36,7 +37,7 @@
             color: $red-dark;
             padding: 0 .5em;
           }
-        }       
+        }
       }
       a {
         color: $yellow-darker;
@@ -45,22 +46,22 @@
       color: black;
     }
     &.info {
-      padding-top: 2em; 
+      padding-top: 2em;
       .show-hidden-entries { float: right; }
     }
     &.links {
       text-align: center;
       width: 100%;
-      display: block;      
+      display: block;
     }
-    
+
   }
-  
+
   .testimonials-container  {
     .entry {
       .picture img { margin-bottom: 3.5em; }
       .content { margin-bottom: 1em; }
     }
   }
-  
+
 }

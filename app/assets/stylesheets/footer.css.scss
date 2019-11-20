@@ -1,6 +1,7 @@
+@import 'colors_alt';
 
 footer {
-  
+
   text-align: center;
   position: relative;
   top: 2em;
@@ -13,18 +14,18 @@ footer {
     padding: 1em;
     vertical-align: top;
     width: 16em;
-        
-    h2 { 
+
+    h2 {
       font-size: 1.25em;
     }
-    
+
     h3 { font-family: Subtitle !important; }
-    
+
     .links {
       list-style-type: none;
       .link {
-        i { 
-          width: 1.35em; 
+        i {
+          width: 1.35em;
           text-align: center;
           &.fa-youtube, &.fa-envelope {
             position: relative;
@@ -40,23 +41,23 @@ footer {
         font-family: Thin;
         font-size: .8em;
         letter-spacing: 2px;
-      }  
+      }
     }
-    
-    .entry {    
+
+    .entry {
       padding: 0 .5em 1.5em .5em;
       color: $yellow-lighter !important;
       display: block;
       margin: auto;
       width: auto;
       text-align: center;
-      .picture img { 
+      .picture img {
         margin: 0 inherit .25em inherit;
-        float: none !important; 
+        float: none !important;
       }
       .title { padding-top: .5em; }
-      .subtitle { 
-        font-family: Thin; 
+      .subtitle {
+        font-family: Thin;
         font-style: normal !important;
         letter-spacing: 2px;
         font-size: 1.1em;
@@ -64,15 +65,15 @@ footer {
       }
       text-align: center;
     }
-    
+
   }
-    
+
   .copyright {
     font-family: Thin;
     letter-spacing: 2px;
     padding-bottom: 1.5em;
   }
-  
+
   .top-link {
    text-align: right;
    padding:0;
@@ -100,6 +101,6 @@ footer {
        top: 10%;
        left: .7em;
      }
-   } 
+   }
   }
 }
