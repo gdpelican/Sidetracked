@@ -47,7 +47,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'paperclip', '~> 3.5.2'
+gem 'paperclip', '~> 4.3.7'
 gem 'aws-sdk', '~> 1.5.7'
 
 gem 'formtastic', '~> 2.2.1'
